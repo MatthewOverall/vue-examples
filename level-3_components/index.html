@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Not 21 Game</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600|Ubuntu+Condensed" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+	<link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+	<div id="app">
+		<h1>Not 21</h1>
+		<game></game>
+	</div>
+
+	<!--BEGIN TEMPLATES-->
+	<script type="text/x-template" id="player-template">
+		<div class="player">
+			<div class="player-box">
+				<div class="name">{{player.name}}</div>
+				<div class="cards">
+					<card v-for="card in player.cards" v-bind:card="card"></card>
+				</div>
+				<div v-bind:class="{busted: !canHit}" class="score">{{total}}</div>
+			</div>
+			<button @click="hit()" v-bind:disabled="!canHit" class="hit pure-button">{{canHit ? 'Hit Me!' :'BUSTED'}}</button>
+		</div>
+	</script>
+	<!--END TEMPLATES-->
+
+	<script type="text/x-template" id="game-template">
+		<div class="game-wrapper">
+			<span>Cards Delt: {{totalCards}}</span>
+			<span> | </span>
+			<span>Sum of Visible Cards: {{sumCards}}</span>
+
+			<div class="card-table">
+				<div class="dealer">
+					<button class="pure-button" @click="addPlayer">Add Player</button>
+					<button class="pure-button" @click="deal">Deal</button>
+					<button class="pure-button" @click="clear">Clear</button>
+				</div>
+				<div class="players">
+					<player v-for="player in players" v-bind:player="player" v-on:hit="dealOne(player)"></player>
+				</div>
+			</div>
+		</div>
+	</script>
+	<script src="data/deckUtils.js"></script>
+	<script src="https://unpkg.com/vue@next/dist/vue.js"></script>
+	<script src="components/player.js"></script>
+	<script src="components/card.js"></script>
+	<script src="components/game.js"></script>
+	<script>
+		new Vue({
+			el: '#app',
+		})
+</script>
+</body>
+
+</html>

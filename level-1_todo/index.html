@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Simple Todo</title>
+	<script src="https://unpkg.com/vue@next/dist/vue.js"></script>
+</head>
+
+<body>
+	<div id="app">
+		<h1>{{message}}</h1>
+    <input v-model="newTodoInput"/>
+    <button @click="addTodo">+ Add</button>
+		<ul>
+			<li v-for="todo in todos">
+				{{todo}}
+			</li>
+		</ul>
+	</div>
+	<script>
+    new Vue({
+      el: '#app',
+      data: {
+        message: "Simple Todos",
+        todos: ['asdfsadf'],
+        newTodoInput: ''
+      },
+      methods:{
+        addTodo: function(){
+          if(this.newTodoInput){
+            this.todos.push(this.newTodoInput)
+            this.newTodoInput = ''
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
