@@ -1,7 +1,7 @@
 <template lang="jade">
   .player
     .player-box
-      .name {{player.name}}
+      .name - {{player.name}} -
       .cards
         jcard(v-for="card in player.cards" v-bind:card="card")
         //card(v-for="card in player.cards" v-bind:card="card")
@@ -10,7 +10,6 @@
 </template>
 
 <script>
-
 import Card from './Card.vue'
 import JCard from './JCard.jsx'
 

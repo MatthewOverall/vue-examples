@@ -1,6 +1,7 @@
 <template>
   <div class="player">
     <div class="player-box">
+      <div>I AM</div>
       <div class="name">{{player.name}}</div>
       <div class="cards">
         <card v-for="card in player.cards" v-bind:card="card"></card>

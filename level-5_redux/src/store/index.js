@@ -34,7 +34,6 @@ const store = new Vuex.Store({
       })
     }
   },
-
   actions: {
     NEW_DECK({state, commit}) {
       let deck = deckUtils.createDeck();

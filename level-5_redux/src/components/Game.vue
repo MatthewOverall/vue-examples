@@ -21,9 +21,7 @@
 import Player from '../components/Player.vue'
 
 export default {
-  data(){
-    return { }
-  },
+ 
   components: { 
     player: Player
   },
