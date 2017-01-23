@@ -6,7 +6,7 @@
 	<title>Simple Todo</title>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="http://anthonyterrien.com/demo/knob/jquery.knob.min.js"></script> 
-	<script src="https://unpkg.com/vue@next/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
 </head>
 
 <body>
@@ -14,7 +14,7 @@
 		<h1>{{message}}</h1>
     <div class="knob"></div>
     <input v-model="newTodoInput"/>
-    <button @click="addTodo">+ Add</button>
+    <button v-bind:click="addTodo">+ Add</button>
 		<ul>
 			<li v-for="todo in todos">
 				{{todo}}

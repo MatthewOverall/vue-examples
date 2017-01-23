@@ -1,7 +1,7 @@
 <template>
   <div class="player">
     <div class="player-box">
-      <div>I AM</div>
+      <div>This is</div>
       <div class="name">{{player.name}}</div>
       <div class="cards">
         <card v-for="card in player.cards" v-bind:card="card"></card>
@@ -44,6 +44,7 @@ export default {
 .player {
   text-align: center;
   color: rgba(244,244,244,0.63);
+  color: magenta
 }
 .player .hit {
   margin-top: 10px;
